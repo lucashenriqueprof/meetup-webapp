@@ -1,0 +1,778 @@
+<!-- https://github.com/hakimel/reveal.js/wiki/Example-Presentations -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>WebApps - Da web ao híbrido</title>
+    <meta name="description" content="Como iniciar o desenvolvimento de uma aplicação moderna com as ferramentas atuais?">
+    <meta name="author" content="Emerson Mellado">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league_light.css" id="theme">
+    <link rel="stylesheet" href="css/theme/em.css" id="theme">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div style="position: absolute; bottom: 10px; left: 100%; margin-left: -150px; z-index: 10;font-size: 10px">
+            <p>
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">off</a> |
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league_light.css'); return false;">on</a>
+            </p>
+        </div>
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <!--
+				<section> 
+					<ol>
+                        <li>Abstração.</li>
+						<li>Arquitetura básica de um webApp.</li>
+						<li>Cliente - Servidor: O que cada um faz?</li>
+						<li>Onde entra o trio tormento? (<span class="emphasis">HTML</span>, <span style="color: blue;">CSS</span> e <span style="color: green;">javaScript</span>)</li>
+						<li>E esse tal de javaScript? (ES6, jQuery, AngularJS, ReactJS, Backbone, MEAN)</li>
+						<li>O que é nodeJs e o que ele pode fazer por mim? (npm, gulp, yo, bower)</li>
+						<li>LiveCoding (Apresentação de projeto de exemplo)</li>					
+						<li>Espaço para dúvidas</li>
+					</ol>											
+				</section>
+Que tal aprender a criar aplicações para mobile e para a web usando uma estrutura bem simples? Venha participar do Meetup para discutirmos diferentes estruturas de aplicações mobile e web, vamos falar sobre JavaScript, aplicações mobile híbridas e algumas tendências do mercado.
+
+Palavras chave: 
+JavaScript 
+nodeJs 
+AngularJS 
+Sass 
+HTML/CSS 
+Ionic / Cordova 
+PWA - Progressive Web Apps				
+				-->
+            <section>
+                <section>
+                    <h1>Web Apps</h1>
+                    <h3>Da web ao híbrido</h3>
+                    <div class="left-show">
+                    </div>
+                    <br/>
+                    <div>
+                        <div style="width: 50%; display: inline-block; text-align: right; margin-right: 5%; vertical-align: top;">
+                            <img class="mug" src="i/perfil.png" alt="Emerson Mellado (aka bruxo)">
+                        </div>
+                        <div style="width: 40%; display: inline-block; text-align: left; margin-top: 5%;">
+                            <p>
+                                <small>com: <a href="http://emersonmellado.com">Emerson Mellado</a> / <a href="http://twitter.com/emersonmellado">emersonm@er7.com.br</a></small>
+                                <p>Full Stack Developer</p>
+                            </p>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        Vamos falar sobre Arquitetura, mas não a do Niemeyer, ferramentas, novidades, medos e receios de um bom desenvolvedor.
+                    </aside>
+                </section>
+                <section>
+                    <video>
+                        <source data-src="clovis.mp4" type="video/mp4" />
+                    </video>
+                    <aside class="notes">
+                        Botão direito, abrir em nova aba :P
+                    </aside>
+                </section>
+            </section>
+            <section data-background="#f94" data-transition="fade">
+                <h1>Web Apps</h1>
+                <p class="bigger">O que me falaram quando quiz fazer um aplicativo?</p>
+                <img src="i/0-question.png" style="position: absolute; -webkit-transform: translate(490px, -250px);">
+                <p>
+                    <span class="fragment current-visible">que era mais simples que eu imaginava!</span>
+                    <br/>
+                    <span class="fragment"><small><strike>que era mais simples que eu imaginava!</strike></small></span>
+                </p>
+                <p>
+                    <span class="fragment fade-in">
+							Isso é muito complicado!<br/>
+						</span>
+                    <span class="fragment">
+							Bah... então é pra mim...
+						</span>
+                    <span class="fragment fade-in">
+							Pensei...
+						</span>
+                </p>
+                <aside class="notes">
+                    <p>O que nunca me falaram quando quiz fazer um aplicativo?</p>
+                    <p>Conteúdo online massivo, gratuíto!</p>
+                    <p><b>Começar pelas dúvidas!</b></p>
+                </aside>
+            </section>
+            <section>
+                <section data-transition="fade">
+                    <h1>Quem sou Eu?</h1>
+                    <p class="fragment">Emerson Mellado, prazer</p>
+                    <p class="fragment">Sou apaixonado por tecnologia, café e carpintaria...</p>
+                    <p class="fragment"> Full Stack Developer</p>
+                    <p class="fragment roll-in">Full o quê?</p>
+                    <p class="fragment roll-in">Stack = Pilhas... sacou?</p>
+                    <aside class="notes">
+                        <b>PRA BAIXO!!!!</b>
+                    </aside>
+                </section>
+                <section>
+                    <img src="i/pilhas.png">
+                    <aside class="notes">
+                        <b>PRA BAIXO!!!!</b>
+                    </aside>
+                </section>
+                <section>
+                    <img src="i/pilhas2.png">
+                    <aside class="notes">
+                        <b>PRA BAIXO!!!!</b>
+                    </aside>
+                </section>
+                <section data-transition="">
+                    <img src="i/doritos.png">
+                </section>
+                <section>
+                    <img src="i/stack.jpg">
+                    <aside class="notes">
+                        <b>PRA BAIXO!!!!</b>
+                    </aside>
+                </section>
+                <section>
+                    <img src="i/stack2.png">
+                    <aside class="notes">
+                        Falando em arquitetura...
+                    </aside>
+                </section>
+                <section>
+                    <img src="i/full-stack.png">
+                    <aside class="notes">
+                        Falando em arquitetura...
+                    </aside>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h3>Vamos falar sobre abstração.</h3>
+                    <aside class="notes">
+                        <p>O que é programar?</p>
+                    </aside>
+                </section>
+                <section>
+                    <blockquote>
+                        &ldquo;A exploração eficaz do seu poder de abstração deve ser considerada como uma das atividades mais importantes de um programador competente&rdquo; - Edsger Dijkstra
+                    </blockquote>
+                    <h2 class="fragment">Abstração</h2>
+                    <p style="text-align: left;" class="fragment">
+                        substantivo feminino
+                        <br/> 1. Operação intelectual em que um objeto de reflexão é isolado de fatores que comumente lhe estão relacionados na realidade.
+                        <br/> 2. O resultado dessa operação (termo, ideia, concepção etc.); abstrato.
+                    </p>
+                </section>
+                <section>
+                    <h2>Exemplo de abstração</h2>
+                    <p style="text-align: left;">
+                        <span class="fragment">(1) um post<br/></span>
+                        <span class="fragment">(2) uma rede social<br/></span>
+                        <span class="fragment">(3) O Facebook<br/></span>
+                        <span class="fragment">(4) o timeline de 18 de junho no Facebook<br/></span>
+                        <span class="fragment">(5) meu timeline de 18 de junho no Facebook<br/></span>
+                        <span class="fragment">(6) meu timeline de 18 de junho no Facebook como estava quando cliquei em curtir no video do gatinho bonitinho (em contraste com aquela pessoa que nem facebook tem :^) hehehe )<br/></span>
+                    </p>
+                </section>
+            </section>
+            <section data-transition="">
+                <img src="i/doritos.png">
+            </section>
+            <section>
+                <h2>O que precisamos entender pra começar?</h2>
+                <span class="fragment">Quem veio primeiro?</span>
+                <p>
+                    <span class="fragment current-visible">O ovo ou a galinha?</span>
+                    <br/>
+                    <span class="fragment"><small><strike>O ovo ou a galinha?</strike></small></span>
+                </p>
+                <p>
+                    <span class="fragment fade-in">
+							O <b>cliente</b> ou o <b>servidor</b>?
+						</span>
+                    <span class="fragment">
+							Ou foi a Arquitetura?
+							<img class="fragment roll-in" src="i/wondering.png">
+						</span>
+                </p>
+                <aside class="notes">
+                    O que nunca me falaram quando quiz fazer um aplicativo?
+                    <br/> Entender o fluxo é importante!
+                    <br/> Ai a coisa ficou puxada.
+                </aside>
+            </section>
+            <section>
+                <section>
+                    <h2>Arquitetura básica <small><strike>(muito básica)</strike></small> de um webApp moderno</h2>
+                    <div class="left-show">
+                    </div>
+                    <div>
+                        <span class="fragment">MVC	 - Model - View - Controller</span>
+                        <img class="fragment" src="i/mvc-sqn.png">
+                    </div>
+                    <aside class="notes">
+                        <p>Alguém vê algo estranho aqui?</p>
+                        <b>PRA BAIXO!!!!</b>
+                    </aside>
+                </section>
+                <section>
+                    <h3>Arquitetura básica <small><strike>(ainda básica)</strike></small> de um webApp moderno, mas vista do jeito certo.</h3>
+                    <div class="left-show">
+                    </div>
+                    <div>
+                        MVC - Model - View - Controller
+                        <img src="i/mvc-yes.png">
+                    </div>
+                    <aside class="notes">
+                        <b>PRA BAIXO!!!!</b>
+                    </aside>
+                </section>
+                <section>
+                    <h3>MVVM - Model - View - View - Model</h3>
+                    <h3>MVW - Model - View - Whatever</h3>
+                    <div class="left-show">
+                    </div>
+                    <div>
+                        <img src="i/MVW.jpg">
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Cliente - Servidor: O que cada um faz?</h2>
+                    <div class="left-show">
+                    </div>
+                    <div>
+                        <div style="width: 50%; display: inline-block; vertical-align: top;">
+                            <span class="fragment roll-in">
+					        		<h3>Cliente</h3>
+					        		<span class="fragment roll-in">
+					        			<h6>Faz a requisição</h6>            					        		
+					            		<img width="120" src="i/1-usuario.png" alt="Cliente"  style="-webkit-transform: translate(0px, 50px);">
+					            	</span>
+                            </span>
+                            <span class="fragment roll-in">
+					            	<img  width="200" src="i/1-req-right.png" style="-webkit-transform: translate(150px, -60px);" alt="Requisição">					            
+					        		<small style="margin-top: -50px; margin-left: 350px">por exemplo: <span class="emphasis">http://www.site.com.br</span></small>
+                            </span>
+                        </div>
+                        <div style="width: 40%; display: inline-block;">
+                            <span class="fragment roll-in">
+					        		<h3>Servidor</h3>
+					        		<h6>Recebe a requisição</h6>
+									<img  width="140" src="i/1-server.png" alt="Servidor" style="-webkit-transform: translate(100px, 50px);">
+								</span>
+                            <span class="fragment roll-in">
+									<img width="100" src="i/1-arrow.png" alt="Processa" style="-webkit-transform: translate(0px, 150px);">
+									<img width="100" src="i/1-process.png" alt="Processa" style="-webkit-transform: translate(0px, 180px);">	
+					        		<small style="margin-top: 200px; margin-left: -200px">Processa</small>
+					        	</span>
+                        </div>
+                    </div>
+                    <div class="fragment roll-in">
+                        <img width="350" height="150" src="i/1-req-right.png" style="-webkit-transform: rotate(180deg) translate(0px, 0px);" alt="Requisição">
+                        <h6 style="margin-top: -20px;">Responde ao cliente</h6>
+                    </div>
+                </section>
+                <section>
+                    <!-- <img src="i/cliente-servidor.png"> -->
+                    <h3>Tecnologias</h3>
+                    <div class="left-show">
+                    </div>
+                    <div>
+                        <div style="width: 50%; display: inline-block; vertical-align: top;">
+                            <span>
+					        		<h3>Cliente</h3>
+					        		<img width="120" src="i/1-usuario.png" alt="Cliente">
+					            	<p>
+					            		HTML, CSS, <span class="emphasis grow">JavaScript</span>, DHTML, VBScript, Applet, ActiveX , Flash
+                            </p>
+                            </span>
+                        </div>
+                        <div style="width: 40%; display: inline-block;">
+                            <span class="fragment roll-in">
+					        		<h3>Servidor</h3>
+					        		<img  width="140" src="i/1-server.png" alt="Servidor">
+									<p>
+										CGI, SSI, Server API, ASP, JSP, PHP, COM/DCOM, CORBA,<span class="emphasis">JavaScript</span>
+                            </p>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+                <section data-background="i/bg_code.svg">
+                    <h2><b>Show me the code!!</b></h2>
+                    <p>
+                        <br>
+                    </p>
+                    <p>
+                        <br>
+                    </p>
+                    <p>
+                        <br>
+                    </p>
+                    <h2 class="fragment">
+							<b>Bora ver um <span class="emphasis">exemplo</span></b>
+						</h2>
+                </section>
+                <section>
+                    <h3>Cliente -  Javascript</h3>
+                    <div>
+                        <pre><code class="hljs" data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Servidor - Javascript</h3>
+                    <div>
+                        <pre><code class="hljs" data-trim contenteditable>
+var Hapi = require('hapi'),
+    environment = require('./environment/environment.js'),    
+    routes = require('./routes'),
+    db = require('./lib/db.js'),    
+    server = new Hapi.Server();
+
+server.connection({
+    host: environment.server.host,
+    port: environment.server.port,
+    routes: { cors: true}
+});
+server.views({
+    path: './src/public/templates',
+    engines: { html: require('handlebars') },
+    partialsPath: './src/public/templates/withPartials',
+    helpersPath: './src/public/templates/helpers'
+});										
+							</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <img src="i/2-cms.png">
+                </section>
+            </section>
+            <section data-transition="">
+                <img src="i/doritos.png">
+            </section>
+            <section>
+            	<section>
+	                <h3>Comparação de webApp</h3>
+	                <table>
+	                    <thead>
+	                        <tr>
+	                            <th></th>
+	                            <th>webApp</th>
+	                            <th style="background: #ddd;">Híbrido</th>
+	                            <th>Nativo</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody>
+	                        <tr>
+	                            <td rowspan="2" style="vertical-align: middle; background: #eee;">Conteúdo</td>
+	                            <td>Maior conteúdo</td>
+	                            <td style="background: #ddd; text-align: center;">Mix (online e offline)</td>
+	                            <td>Acesso mais rápido</td>
+	                        </tr>
+	                        <tr>
+	                            <td>Depende da internet(ou cache)</td>
+	                            <td style="background: #ddd; text-align: center;">Mix</td>
+	                            <td>Native device resources</td>
+	                        </tr>
+	                        <tr class="fragment">
+	                            <td style="vertical-align: middle;  background: #eee;">Manutenção</td>
+	                            <td>Simples (HTML/CSS/JS)</td>
+	                            <td style="background: #ddd; text-align: center;">Mix</td>
+	                            <td>Mais complicada</td>
+	                        </tr>
+	                        <tr class="fragment">
+	                            <td style="vertical-align: middle;  background: #eee;">Custo</td>
+	                            <td>Geralmente mais barato</td>
+	                            <td style="background: #ddd; text-align: center;">Mix</td>
+	                            <td>Geralmente mais caro</td>
+	                        </tr>
+	                    </tbody>
+	                </table>
+                </section>
+                <section>
+                	<h3>Mais detalhes</h3>
+                	<img width="100%" src="i/all-webapps.png">
+                </section> 
+                <section>
+                	<img width="80%" src="i/0274-02_facebook_native_mobile_web_app.jpg">
+                </section>                
+            </section>
+            <section>
+                <section>
+                    <h2>Onde entra o trio tormento? HTML/CSS/javaScript? <small><strike>Eu sabia essa com laranjas</strike></small></h2>
+                    <ul>
+                        <li>
+                            HTML => <span class="fragment" style="color: green">View</span>
+                            <span class="fragment">: Simples assim</span>
+                        </li>
+                        <li>
+                            CSS => <span class="fragment" style="color: green">View</span>
+                            <span class="fragment">: Simples assim</span>
+                        </li>
+                        <li>
+                            javaScript => <span class="fragment" style="color: green">View</span>
+                            <span class="fragment" style="color: yellow">Model</span>
+                            <span class="fragment emphasis">Controller</span>
+                            <span class="fragment" style="color: purple">Whatever</span>
+                            <span class="fragment">: Simples assim, também</span>
+                            <br/>
+                            <img class="fragment roll-in" align="center" src="i/wondering.png">
+                        </li>
+                    </ul>
+                </section>
+                <section data-background="i/html.png">
+                    <h2>HTML</h2>
+                    <p>
+                        linguagem de marcação utilizada na construção de páginas na Web
+                    </p>
+                    <p class="fragment">Existe programador HTML?</p>
+                    <p class="fragment">E <span class="emphasis grow">HTML 5</span>?</p>
+                    <aside class="notes">
+                        <ul>
+                            <li>Formalizada na década de 90</li>
+                            <li>HTML 3.5 no final de 1997</li>
+                            <li>Mantida pela W3C - World Wide Web Consortium</li>
+                            <li>HTML 5 - 2008</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h3>HTML do pudim.com.br</h3>
+                    <img src="i/pudim-code.jpg">
+                </section>
+                <section>
+                    <img src="i/pudim.jpg">
+                </section>
+                <section>
+                    <h2>E o <span class="emphasis grow">CS</span>S?</h2>
+                    <img class="" src="i/csoldier.png">
+                    <span class="fragment fade-in">Não esse, a folha de estilos em cascata</span>
+                </section>
+                <section>
+                    <h2>CSS - Folha de estilo em cascata</h2>
+                    <p>linguagem de folhas de estilo utilizada para definir a apresentação de documentos escritos em uma linguagem de marcação, como HTML ou XML</p>
+                    <p class="fragment">
+                        Acompanha o HTML, igual goiabada com queijo.
+                    </p>
+                    <p class="fragment">Alguém programa só em CSS?</p>
+                    <p class="fragment">éééé depende... vamos considerar os pre-processadores? <a href="http://stylus-lang.com/">Stylus</a>, <a href="http://sass-lang.com/">SaaS</a>, <a href="http://lesscss.org/">Less</a></p>
+                    <p class="fragment">
+                        Exemplos:
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a>
+                        <br>
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+                        <br>
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league_light.css'); return false;"> => Voltar ao normal</a>
+                    </p>
+                    <aside class="notes">
+                        <ul>
+                            <li>Time to javaScript!!!</li>
+                        </ul>
+                    </aside>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>E esse tal de javaScript?</h2>
+                    <img src="i/horse-js.png">
+                </section>
+                <section>
+                    <h2>E esse tal de javaScript?</h2>
+                    <p>
+                        ES6
+                        <br/> jQuery
+                        <br/> AngularJS
+                        <br/>
+                    </p>
+                    <h2 class="fragment">javaScript <span class="emphasis">não é Java</span></h2>
+                </section>
+                <section>
+                    <p>Es6 ou Es6/2015</p>
+                    <p>ECMA Script - javaScript padrão da comunidade, alternativa ao JScript (M$)</p>
+                    <ul>
+                        <li class="fragment roll-in">Escopos não serão mais tãooo confusos</li>
+                        <li class="fragment roll-in">Novos tipos no parser: ex: <span class="emphasis">const</span></li>
+                        <li class="fragment roll-in">Diferenciação entre classes e functions com construtores</li>
+                        <li class="fragment roll-in">Herança com suporte a super construtores <span class="emphasis">super()</span></li>
+                        <li class="fragment roll-in">Notação mais direta. ex: <span class="emphasis">=></span> e <span class="emphasis">${}</span></li>
+                    </ul>
+                    <aside class="notes">
+                        <b>Projeto Es6-ERM</b>
+                        <br/> https://jsfiddle.net/!!!
+                    </aside>
+                </section>
+                <section>
+                    <p>jQuery</p>
+                    <ul>
+                        <li class="fragment roll-in">selectors... muitos selectors</li>
+                        <li class="fragment roll-in">callbacks</li>
+                        <li class="fragment roll-in">plugins... <span class="emphasis">(my precious)</span></li>
+                        <li class="fragment roll-in">a biblioteca mais usada e conhecida de javaScript</li>
+                    </ul>
+                    <aside class="notes">
+                        <b>Projeto Es6-ERM</b>
+                    </aside>
+                </section>
+                <section>
+                    <p>angular</p>
+                    <ul>
+                        <li class="fragment roll-in">controllers</li>
+                        <li class="fragment roll-in">rotas</li>
+                        <li class="fragment roll-in">diretivas</li>
+                        <li class="fragment roll-in">filtros</li>
+                        <li class="fragment roll-in">injeção de dependência</li>
+                        <li class="fragment roll-in">muitos exemplos e documentação</li>
+                        <li class="fragment roll-in">idealizado pelo google</li>
+                    </ul>
+                    <aside class="notes">
+                        <b>yo gulp-angular</b>
+                    </aside>
+                </section>
+                <section>
+                    <p>react</p>
+                    <ul>
+                        <li class="fragment roll-in">mais coisas, menos código</li>
+                        <li class="fragment roll-in">modificadores</li>
+                        <li class="fragment roll-in">listeners</li>
+                        <li class="fragment roll-in">muitos exemplos e documentação</li>
+                        <li class="fragment roll-in">idealizado pelo facebook</li>
+                    </ul>
+                    <aside class="notes">
+                        <b>yo gulp-angular</b>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Por onde começar?</h2>
+                    <img src="i/estudar-JS.jpg">
+                </section>
+            </section>
+            <section data-background="#f2f2f2">
+                <section>
+                    <img style="width: 80%" src="i/5-node-logo.png" alt="NodeJS">
+                    <img class="fragment roll-in" src="i/5-integrar.png" alt="Integrável">
+                    <img class="fragment roll-in" src="i/5-rapido.png" alt="Rápido">
+                    <img class="fragment roll-in" src="i/5-facil.png" alt="Fácil">
+                    <img class="fragment roll-in" src="i/5-divertido.png" alt="Divertido">
+                    <aside class="notes">
+                        <ul>
+                            <li>Integrável</li>
+                            <li>Rápido</li>
+                            <li>Fácil</li>
+                            <li>Divertido</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h2>nodeJs é um wrapper</h2>
+                    <p class="fragment">V8 Google JavaScript Engine</p>
+                    <p class="fragment">Non-blocking I/O - Evento Loop e Single Thread</p>
+                    <p class="fragment">wrapper é um empacotador, um grande programa com pequenos programas dentro.</p>
+                    <p class="fragment">seu principal objetivo é dar suporte a criação de aplicações escaláveis.</p>
+                    <p class="fragment">pode ser usado para desenvolvimento tanto <span class="emphasis">backend</span> quanto <span class="emphasis">frontend</span>.</p>
+                </section>
+                <section>
+                    <div class="left-show">
+                    </div>
+                    <div>
+                        <div style="width: 50%; display: inline-block; margin-right: 5%; vertical-align: top;">
+                            <p style="text-align: right;">
+                                <b>
+					                    acesse nodejs.org
+					                </b>
+                            </p>
+                        </div>
+                        <div style="width: 40%; display: inline-block;">
+                            <p style="text-align: left; font-weight: bold;">
+                                <span style="color: rgb(204, 153, 204);">
+					                    baixe e instale 
+					                    <span style="color: rgb(249, 145, 87);">
+					                        o node
+					                    </span>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="fragment" style="margin: 50px 0px;">
+                        <div style="width: 50%; display: inline-block; margin-right: 5%; vertical-align: top;">
+                            <p style="text-align: right;">
+                                <b>
+					                    acesse npmjs.com
+					                </b>
+                            </p>
+                        </div>
+                        <div style="width: 40%; display: inline-block;">
+                            <p style="text-align: left; font-weight: bold;">
+                                let happy = true
+                                <br/>
+                                <span style="color: rgb(204, 153, 204);">
+					                    return
+					                </span>
+                                <br/>
+                                <small><i>ES6 notation here, gotcha? :P</i></small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="fragment">
+                        <div style="width: 100%; display: inline-block; margin-right: 5%; vertical-align: top;">
+                            <p style="text-align: right;">
+                                <b>
+					                    estude, Estude, ESTUDE!!!
+					                </b>
+                            </p>
+                            <p style="text-align: right;">
+                                <b>
+					                    até você conseguir melhorar o código abaixo
+					                </b>
+                            </p>
+                            <pre><code class="hljs"  data-trim>
+Function.prototype.applyAsync = function(params, cb){
+  var function_context = this;
+  setTimeout(function(){
+    var val = function_context.apply(undefined, params); 
+    if(cb) cb(val);
+  }, 0);
+}</code></pre>
+                            <aside class="notes">
+                                <p>
+                                    Pasta: nodejs
+                                    <br/>
+                                    <br/> > a = [ 1, 2, 3];
+                                    <br/> > a.forEach((v) => {
+                                    <br/> ... console.log(v);
+                                    <br/> ... });
+                                </p>
+                            </aside>
+                </section>
+                <section>
+                    <img src="i/exemplo-stack-node.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Ionic</h1>
+                    <p>Framework (monstro)</p>
+                </section>
+                <section>
+                    https://github.com/driftyco/ionic-starter-tabs
+                </section>
+            </section>
+            <section>
+                <h2>O que nao falamos?</h2>
+                <div>
+                    <div style="width: 50%; display: inline-block; text-align: right; margin-right: 5%; vertical-align: top;">
+                        <ul>
+                            <li>Pré-processadores CSS</li>
+                            <li>Protocolos HTTP</li>
+                            <li>IDE / PLataformas</li>
+                            <li>JSON</li>
+                            <li>Ajax</li>
+                            <li>StackOverflow</li>
+                            <li>GitHub</li>
+                            <li>Muito, muito mais...</li>
+                        </ul>
+                    </div>
+                    <div style="width: 40%; display: inline-block; text-align: left; margin-top: 5%;">
+                        <img src="i/alguns-fe.png">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Lembre-se!</h3>
+                <blockquote class="fragment">
+                    &ldquo;Se você não tem dúvida é porque está mal informado&rdquo; - Millôr Fernandes
+                </blockquote>
+                <h1 class="fragment">Alguma dúvida?</h1>
+            </section>
+            <section data-transition="">
+                <img class="fade-out" src="i/doritos.png">
+            </section>
+            <section>
+                <h1>Obrigado!</h1>
+            </section>
+            </div>
+            </div>
+            <script src="lib/js/head.min.js"></script>
+            <script src="js/reveal.js"></script>
+            <script>
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                theme: Reveal.getQueryHash().theme,
+                transition: Reveal.getQueryHash().transition || 'convex',
+                dependencies: [{
+                    src: 'lib/js/classList.js',
+                    condition: function() {
+                        return !document.body.classList;
+                    }
+                }, {
+                    src: 'plugin/markdown/marked.js',
+                    condition: function() {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                }, {
+                    src: 'plugin/markdown/markdown.js',
+                    condition: function() {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                }, {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                }, {
+                    src: 'plugin/zoom-js/zoom.js',
+                    async: true
+                }, {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                }]
+            });
+            </script>
+</body>
+
+</html>
