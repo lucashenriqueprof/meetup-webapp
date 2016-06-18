@@ -1,4 +1,4 @@
-### Palestra preparada para o FLISOL-2016
+### Palestra preparada para o Meetup!!!
 
 O conteúdo está offline, dessa forma não é necessário estar conectado a internet para reproduzir.
 
@@ -10,8 +10,8 @@ Vamos lá.
 
     1. Acesse (http://nodejs.org/) faça o download e instale o node;
     2. Acesse (https://git-scm.com/downloads) faça o download e instale o git;
-    3. Faça um fork do projeto: https://github.com/emersonmellado/flisol-2016-presentation.io.git
-    2. Você deve agora clonar sua versão do projeto com o comando: git clone https://github.com/[YOUR-USERNAME]/flisol-2016-presentation.io
+    3. Faça um fork do projeto: https://github.com/emersonmellado/meetup-webapp.git
+    2. Você deve agora clonar sua versão do projeto com o comando: git clone https://github.com/[YOUR-USERNAME]/meetup-webapp
 
 ## E pra rodar a parada?
 
@@ -23,7 +23,7 @@ Vamos lá.
 
 ## Para os preguiçocos 
 
-Segue link do github.io já compilado (http://emersonmellado.github.io/flisol-2016-presentation.io)
+Segue link do github.io já compilado (http://emersonmellado.github.io/meetup-webapp)
 (Sem graça e com conteúdo estático :P) 
     
 
